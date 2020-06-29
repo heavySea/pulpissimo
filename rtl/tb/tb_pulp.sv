@@ -154,7 +154,7 @@ module tb_pulp;
    wire                  w_cam_vsync;
 
    // I2S 0
-   wire                  w_i2s0_sck;
+   /*wire                  w_i2s0_sck;
    wire                  w_i2s0_ws;
    wire                  w_i2s0_sdi;
    // I2S 1
@@ -163,6 +163,7 @@ module tb_pulp;
    wire                  w_i2s_sck;
    wire                  w_i2s_ws;
    wire           [7:0]  w_i2s_data;
+   */
 
    wire                  w_trstn;
    wire                  w_tck;
@@ -207,10 +208,10 @@ module tb_pulp;
    logic                tmp_bridge_tdo;
 
 
-
+/*
    wire w_master_i2s_sck;
    wire w_master_i2s_ws ;
-
+*/
    wire w_bootsel;
    logic s_bootsel;
 
@@ -447,6 +448,7 @@ module tb_pulp;
       end
 
       /* I2S verification IPs */
+      /*
       if(USE_I2S_MODEL) begin
          i2s_vip #(
             .I2S_CHAN ( 0              ),
@@ -511,8 +513,10 @@ module tb_pulp;
                .ws_o   (                  )
             );
       end
+      */
 
    end
+
 
     // jtag calls from dpi
     SimJTAG #(
@@ -572,11 +576,12 @@ module tb_pulp;
       .pad_i2c0_sda       ( w_i2c0_sda         ),
       .pad_i2c0_scl       ( w_i2c0_scl         ),
 
+      /*
       .pad_i2s0_sck       ( w_i2s0_sck         ),
       .pad_i2s0_ws        ( w_i2s0_ws          ),
       .pad_i2s0_sdi       ( w_i2s0_sdi         ),
       .pad_i2s1_sdi       ( w_i2s1_sdi         ),
-
+   */
       .pad_reset_n        ( w_rst_n            ),
       .pad_bootsel        ( w_bootsel          ),
 

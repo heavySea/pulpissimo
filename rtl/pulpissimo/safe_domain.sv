@@ -54,6 +54,7 @@ module safe_domain #(
         input  logic [N_I2C-1:0] i2c_sda_oe_i,
 
         // I2S
+        /*
         output logic             i2s_slave_sd0_o      ,
         output logic             i2s_slave_sd1_o      ,
         output logic             i2s_slave_ws_o       ,
@@ -62,6 +63,7 @@ module safe_domain #(
         output logic             i2s_slave_sck_o      ,
         input  logic             i2s_slave_sck_i      ,
         input  logic             i2s_slave_sck_oe     ,
+        */
 
         // SPI MASTER
         input  logic [N_SPI-1:0]      spi_clk_i,
@@ -124,11 +126,12 @@ module safe_domain #(
         output logic             out_cam_vsync_o      ,
         output logic             out_i2c0_sda_o       ,
         output logic             out_i2c0_scl_o       ,
+        /*
         output logic             out_i2s0_sck_o       ,
         output logic             out_i2s0_ws_o        ,
         output logic             out_i2s0_sdi_o       ,
         output logic             out_i2s1_sdi_o       ,
-
+        */
 
         // PAD INPUTS
         input logic              in_spim_sdio0_i      ,
@@ -159,10 +162,13 @@ module safe_domain #(
         input logic              in_cam_vsync_i       ,
         input logic              in_i2c0_sda_i        ,
         input logic              in_i2c0_scl_i        ,
+        
+        /*
         input logic              in_i2s0_sck_i        ,
         input logic              in_i2s0_ws_i         ,
         input logic              in_i2s0_sdi_i        ,
         input logic              in_i2s1_sdi_i        ,
+        */
 
         // OUTPUT ENABLE
         output logic             oe_spim_sdio0_o      ,
@@ -192,11 +198,14 @@ module safe_domain #(
         output logic             oe_cam_data7_o       ,
         output logic             oe_cam_vsync_o       ,
         output logic             oe_i2c0_sda_o        ,
-        output logic             oe_i2c0_scl_o        ,
+        output logic             oe_i2c0_scl_o        
+        
+        /*
         output logic             oe_i2s0_sck_o        ,
         output logic             oe_i2s0_ws_o         ,
         output logic             oe_i2s0_sdi_o        ,
         output logic             oe_i2s1_sdi_o
+        */
     );
 
     logic        s_test_clk;
@@ -243,6 +252,7 @@ module safe_domain #(
         .i2c_sda_in_o          ( i2c_sda_in_o          ),
         .i2c_sda_oe_i          ( i2c_sda_oe_i          ),
 
+        /*
         .i2s_slave_sd0_o       ( i2s_slave_sd0_o       ),
         .i2s_slave_sd1_o       ( i2s_slave_sd1_o       ),
         .i2s_slave_ws_o        ( i2s_slave_ws_o        ),
@@ -251,6 +261,7 @@ module safe_domain #(
         .i2s_slave_sck_o       ( i2s_slave_sck_o       ),
         .i2s_slave_sck_i       ( i2s_slave_sck_i       ),
         .i2s_slave_sck_oe      ( i2s_slave_sck_oe      ),
+        */
 
         .spi_clk_i             ( spi_clk_i             ),
         .spi_csn_i             ( spi_csn_i             ),
@@ -304,11 +315,12 @@ module safe_domain #(
         .out_cam_vsync_o       ( out_cam_vsync_o       ),
         .out_i2c0_sda_o        ( out_i2c0_sda_o        ),
         .out_i2c0_scl_o        ( out_i2c0_scl_o        ),
+        /*
         .out_i2s0_sck_o        ( out_i2s0_sck_o        ),
         .out_i2s0_ws_o         ( out_i2s0_ws_o         ),
         .out_i2s0_sdi_o        ( out_i2s0_sdi_o        ),
         .out_i2s1_sdi_o        ( out_i2s1_sdi_o        ),
-
+        */
         .in_spim_sdio0_i       ( in_spim_sdio0_i       ),
         .in_spim_sdio1_i       ( in_spim_sdio1_i       ),
         .in_spim_sdio2_i       ( in_spim_sdio2_i       ),
@@ -337,10 +349,12 @@ module safe_domain #(
         .in_cam_vsync_i        ( in_cam_vsync_i        ),
         .in_i2c0_sda_i         ( in_i2c0_sda_i         ),
         .in_i2c0_scl_i         ( in_i2c0_scl_i         ),
+        /*
         .in_i2s0_sck_i         ( in_i2s0_sck_i         ),
         .in_i2s0_ws_i          ( in_i2s0_ws_i          ),
         .in_i2s0_sdi_i         ( in_i2s0_sdi_i         ),
         .in_i2s1_sdi_i         ( in_i2s1_sdi_i         ),
+        */
 
         .oe_spim_sdio0_o       ( oe_spim_sdio0_o       ),
         .oe_spim_sdio1_o       ( oe_spim_sdio1_o       ),
@@ -370,11 +384,12 @@ module safe_domain #(
         .oe_cam_vsync_o        ( oe_cam_vsync_o        ),
         .oe_i2c0_sda_o         ( oe_i2c0_sda_o         ),
         .oe_i2c0_scl_o         ( oe_i2c0_scl_o         ),
+        /*
         .oe_i2s0_sck_o         ( oe_i2s0_sck_o         ),
         .oe_i2s0_ws_o          ( oe_i2s0_ws_o          ),
         .oe_i2s0_sdi_o         ( oe_i2s0_sdi_o         ),
         .oe_i2s1_sdi_o         ( oe_i2s1_sdi_o         ),
-
+        */
         .*
     );
 

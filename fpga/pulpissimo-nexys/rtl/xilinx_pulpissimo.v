@@ -19,6 +19,11 @@
 // specific language governing permissions and limitations under the License.
 //-----------------------------------------------------------------------------
 
+//
+//  STELLissimo v0.1
+//  
+//
+
 module xilinx_pulpissimo
   (
    input wire  sys_clk,
@@ -36,22 +41,26 @@ module xilinx_pulpissimo
    //inout  wire pad_uart_rts,  //Not mapped, optional
 
    inout wire  led0_o, //Mapped to spim_csn1
-   inout wire  led1_o, //Mapped to cam_pclk
-   inout wire  led2_o, //Mapped to cam_hsync
-   inout wire  led3_o, //Mapped to cam_data0
 
-   inout wire  switch0_i, //Mapped to cam_data1
-   inout wire  switch1_i, //Mapped to cam_data2
+   
 
+   // No cam support needed
+   /*
    inout wire  btnc_i, //Mapped to cam_data3
    inout wire  btnd_i, //Mapped to cam_data4
    inout wire  btnl_i, //Mapped to cam_data5
    inout wire  btnr_i, //Mapped to cam_data6
    inout wire  btnu_i, //Mapped to cam_data7
+   inout wire  led1_o, //Mapped to cam_pclk
+   inout wire  led2_o, //Mapped to cam_hsync
+   inout wire  led3_o, //Mapped to cam_data0
+   inout wire  switch0_i, //Mapped to cam_data1
+   inout wire  switch1_i, //Mapped to cam_data2
+   */
 
 
    inout wire  sdio_reset_o, //Reset signal for SD card need to be driven low to
-                             //power the onboard sd-card. Mapped to cam_vsync.
+                             //power the onboard sd-card.
    inout wire  pad_sdio_clk,
    inout wire  pad_sdio_cmd,
    inout wire  pad_sdio_data0,
@@ -62,10 +71,13 @@ module xilinx_pulpissimo
 	 inout wire	 pad_i2c0_sda, 
    inout wire  pad_i2c0_scl, 
 
+   //no i2s needed
+   /*
    inout wire  pad_i2s0_sck,
    inout wire  pad_i2s0_ws,
    inout wire  pad_i2s0_sdi,
    inout wire  pad_i2s1_sdi,
+   */
 
    input wire  pad_reset_n,
    inout wire  pad_bootsel,
@@ -129,6 +141,7 @@ module xilinx_pulpissimo
 
   //  );
 
+  
   pulpissimo
     #(.CORE_TYPE(CORE_TYPE),
       .USE_FPU(USE_FPU),
@@ -144,6 +157,7 @@ module xilinx_pulpissimo
        .pad_spim_sck(pad_spim_sck),
        .pad_uart_rx(pad_uart_rx),
        .pad_uart_tx(pad_uart_tx),
+       
        .pad_cam_pclk(led1_o),
        .pad_cam_hsync(led2_o),
        .pad_cam_data0(led3_o),
@@ -155,18 +169,21 @@ module xilinx_pulpissimo
        .pad_cam_data6(btnr_i),
        .pad_cam_data7(btnu_i),
        .pad_cam_vsync(sdio_reset_o),
+       
        .pad_sdio_clk(pad_sdio_clk),
        .pad_sdio_cmd(pad_sdio_cmd),
        .pad_sdio_data0(pad_sdio_data0),
        .pad_sdio_data1(pad_sdio_data1),
        .pad_sdio_data2(pad_sdio_data2),
        .pad_sdio_data3(pad_sdio_data3),
-			 .pad_i2c0_sda(pad_i2c0_sda),
+       .pad_i2c0_sda(pad_i2c0_sda),
 			 .pad_i2c0_scl(pad_i2c0_scl),
-			 .pad_i2s0_sck(pad_i2s0_sck),
+			 /*
+       .pad_i2s0_sck(pad_i2s0_sck),
 			 .pad_i2s0_ws(pad_i2s0_ws),
 			 .pad_i2s0_sdi(pad_i2s0_sdi),
 			 .pad_i2s1_sdi(pad_i2s1_sdi),
+       */
        .pad_reset_n(pad_reset_n),
        .pad_jtag_tck(tck_int),
        .pad_jtag_tdi(pad_jtag_tdi),

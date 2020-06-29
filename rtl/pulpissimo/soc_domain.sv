@@ -86,6 +86,7 @@ module soc_domain #(
     output logic [N_I2C-1:0]                 i2c_sda_o,
     output logic [N_I2C-1:0]                 i2c_sda_oe_o,
 
+    /*
     input  logic                             i2s_slave_sd0_i,
     input  logic                             i2s_slave_sd1_i,
     input  logic                             i2s_slave_ws_i,
@@ -94,6 +95,7 @@ module soc_domain #(
     input  logic                             i2s_slave_sck_i,
     output logic                             i2s_slave_sck_o,
     output logic                             i2s_slave_sck_oe,
+    */
 
     output logic [N_SPI-1:0]                 spi_clk_o,
     output logic [N_SPI-1:0][3:0]            spi_csn_o,
@@ -339,10 +341,12 @@ module soc_domain #(
         .i2c_scl_oe_o                (i2c_scl_oe_o[N_I2C-1:0]),
         .i2c_sda_o                   (i2c_sda_o[N_I2C-1:0]),
         .i2c_sda_oe_o                (i2c_sda_oe_o[N_I2C-1:0]),
+        /*
         .i2s_slave_ws_o              (i2s_slave_ws_o),
         .i2s_slave_ws_oe             (i2s_slave_ws_oe),
         .i2s_slave_sck_o             (i2s_slave_sck_o),
         .i2s_slave_sck_oe            (i2s_slave_sck_oe),
+        */
         .spi_clk_o                   (spi_clk_o[N_SPI-1:0]),
         .spi_csn_o                   (spi_csn_o/*[N_SPI-1:0][3:0]*/),
         .spi_oen_o                   (spi_oen_o/*[N_SPI-1:0][3:0]*/),
@@ -421,10 +425,12 @@ module soc_domain #(
         .cam_vsync_i                 (cam_vsync_i),
         .i2c_scl_i                   (i2c_scl_i[N_I2C-1:0]),
         .i2c_sda_i                   (i2c_sda_i[N_I2C-1:0]),
+        /*
         .i2s_slave_sd0_i             (i2s_slave_sd0_i),
         .i2s_slave_sd1_i             (i2s_slave_sd1_i),
         .i2s_slave_ws_i              (i2s_slave_ws_i),
         .i2s_slave_sck_i             (i2s_slave_sck_i),
+        */
         .spi_sdi_i                   (spi_sdi_i/*[N_SPI-1:0][3:0]*/),
         .sdio_cmd_i                  (sdio_cmd_i),
         .sdio_data_i                 (sdio_data_i[3:0]),
