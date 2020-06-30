@@ -46,6 +46,7 @@ module pad_frame
         input logic             oe_i2s0_sdi_i    ,
         input logic             oe_i2s1_sdi_i    ,
         */
+        /*
         input logic             oe_cam_pclk_i    ,
         input logic             oe_cam_hsync_i   ,
         input logic             oe_cam_data0_i   ,
@@ -57,6 +58,8 @@ module pad_frame
         input logic             oe_cam_data6_i   ,
         input logic             oe_cam_data7_i   ,
         input logic             oe_cam_vsync_i   ,
+        */
+
         input logic             oe_i2c0_sda_i    ,
         input logic             oe_i2c0_scl_i    ,
         input logic             oe_uart_rx_i     ,
@@ -82,6 +85,7 @@ module pad_frame
         input logic             out_i2s0_sdi_i   ,
         input logic             out_i2s1_sdi_i   ,
         */
+        /*
         input logic             out_cam_pclk_i   ,
         input logic             out_cam_hsync_i  ,
         input logic             out_cam_data0_i  ,
@@ -93,6 +97,7 @@ module pad_frame
         input logic             out_cam_data6_i  ,
         input logic             out_cam_data7_i  ,
         input logic             out_cam_vsync_i  ,
+        */
         input logic             out_i2c0_sda_i   ,
         input logic             out_i2c0_scl_i   ,
         input logic             out_uart_rx_i    ,
@@ -118,6 +123,7 @@ module pad_frame
         output logic            in_i2s0_sdi_o    ,
         output logic            in_i2s1_sdi_o    ,
         */
+        /*
         output logic            in_cam_pclk_o    ,
         output logic            in_cam_hsync_o   ,
         output logic            in_cam_data0_o   ,
@@ -129,6 +135,7 @@ module pad_frame
         output logic            in_cam_data6_o   ,
         output logic            in_cam_data7_o   ,
         output logic            in_cam_vsync_o   ,
+        */
         output logic            in_i2c0_sda_o    ,
         output logic            in_i2c0_scl_o    ,
         output logic            in_uart_rx_o     ,
@@ -156,7 +163,7 @@ module pad_frame
         inout wire              pad_i2s0_sdi     ,
         inout wire              pad_i2s1_sdi     ,
         */
-
+        /*
         inout wire              pad_cam_pclk     ,
         inout wire              pad_cam_hsync    ,
         inout wire              pad_cam_data0    ,
@@ -168,6 +175,7 @@ module pad_frame
         inout wire              pad_cam_data6    ,
         inout wire              pad_cam_data7    ,
         inout wire              pad_cam_vsync    ,
+        */
         inout wire              pad_i2c0_sda     ,
         inout wire              pad_i2c0_scl     ,
         inout wire              pad_uart_rx      ,
@@ -203,7 +211,7 @@ module pad_frame
     pad_functional_pd padinst_i2s0_sdi   (.OEN(~oe_i2s0_sdi_i  ), .I(out_i2s0_sdi_i  ), .O(in_i2s0_sdi_o  ), .PAD(pad_i2s0_sdi  ), .PEN(~pad_cfg_i[37][0]) );
     pad_functional_pd padinst_i2s0_sck   (.OEN(~oe_i2s0_sck_i  ), .I(out_i2s0_sck_i  ), .O(in_i2s0_sck_o  ), .PAD(pad_i2s0_sck  ), .PEN(~pad_cfg_i[35][0]) );
     */
-
+    /*
     pad_functional_pd padinst_cam_pclk   (.OEN(~oe_cam_pclk_i  ), .I(out_cam_pclk_i  ), .O(in_cam_pclk_o  ), .PAD(pad_cam_pclk  ), .PEN(~pad_cfg_i[9][0] ) );
     pad_functional_pd padinst_cam_hsync  (.OEN(~oe_cam_hsync_i ), .I(out_cam_hsync_i ), .O(in_cam_hsync_o ), .PAD(pad_cam_hsync ), .PEN(~pad_cfg_i[10][0]) );
     pad_functional_pd padinst_cam_data0  (.OEN(~oe_cam_data0_i ), .I(out_cam_data0_i ), .O(in_cam_data0_o ), .PAD(pad_cam_data0 ), .PEN(~pad_cfg_i[11][0]) );
@@ -215,7 +223,7 @@ module pad_frame
     pad_functional_pd padinst_cam_data6  (.OEN(~oe_cam_data6_i ), .I(out_cam_data6_i ), .O(in_cam_data6_o ), .PAD(pad_cam_data6 ), .PEN(~pad_cfg_i[17][0]) );
     pad_functional_pd padinst_cam_data7  (.OEN(~oe_cam_data7_i ), .I(out_cam_data7_i ), .O(in_cam_data7_o ), .PAD(pad_cam_data7 ), .PEN(~pad_cfg_i[18][0]) );
     pad_functional_pd padinst_cam_vsync  (.OEN(~oe_cam_vsync_i ), .I(out_cam_vsync_i ), .O(in_cam_vsync_o ), .PAD(pad_cam_vsync ), .PEN(~pad_cfg_i[19][0]) );
-
+    */
     pad_functional_pu padinst_uart_rx    (.OEN(~oe_uart_rx_i   ), .I(out_uart_rx_i   ), .O(in_uart_rx_o   ), .PAD(pad_uart_rx   ), .PEN(~pad_cfg_i[33][0]) );
     pad_functional_pu padinst_uart_tx    (.OEN(~oe_uart_tx_i   ), .I(out_uart_tx_i   ), .O(in_uart_tx_o   ), .PAD(pad_uart_tx   ), .PEN(~pad_cfg_i[34][0]) );
     pad_functional_pu padinst_i2c0_sda   (.OEN(~oe_i2c0_sda_i  ), .I(out_i2c0_sda_i  ), .O(in_i2c0_sda_o  ), .PAD(pad_i2c0_sda  ), .PEN(~pad_cfg_i[7][0] ) );

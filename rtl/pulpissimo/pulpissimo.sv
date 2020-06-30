@@ -31,6 +31,7 @@ module pulpissimo #(
   inout wire pad_uart_rx,
   inout wire pad_uart_tx,
   
+  /*
   inout wire pad_cam_pclk,
   inout wire pad_cam_hsync,
   inout wire pad_cam_data0,
@@ -42,6 +43,7 @@ module pulpissimo #(
   inout wire pad_cam_data6,
   inout wire pad_cam_data7,
   inout wire pad_cam_vsync,
+  */
 
   inout wire pad_sdio_clk,
   inout wire pad_sdio_cmd,
@@ -103,6 +105,7 @@ module pulpissimo #(
   logic s_out_spim_sck;
   logic s_out_uart_rx;
   logic s_out_uart_tx;
+  /*
   logic s_out_cam_pclk;
   logic s_out_cam_hsync;
   logic s_out_cam_data0;
@@ -114,6 +117,7 @@ module pulpissimo #(
   logic s_out_cam_data6;
   logic s_out_cam_data7;
   logic s_out_cam_vsync;
+  */
   logic s_out_sdio_clk;
   logic s_out_sdio_cmd;
   logic s_out_sdio_data0;
@@ -138,6 +142,8 @@ module pulpissimo #(
   logic s_in_spim_sck;
   logic s_in_uart_rx;
   logic s_in_uart_tx;
+
+  /*
   logic s_in_cam_pclk;
   logic s_in_cam_hsync;
   logic s_in_cam_data0;
@@ -149,6 +155,8 @@ module pulpissimo #(
   logic s_in_cam_data6;
   logic s_in_cam_data7;
   logic s_in_cam_vsync;
+  */
+
   logic s_in_sdio_clk;
   logic s_in_sdio_cmd;
   logic s_in_sdio_data0;
@@ -172,6 +180,8 @@ module pulpissimo #(
   logic s_oe_spim_sck;
   logic s_oe_uart_rx;
   logic s_oe_uart_tx;
+
+  /*
   logic s_oe_cam_pclk;
   logic s_oe_cam_hsync;
   logic s_oe_cam_data0;
@@ -183,6 +193,8 @@ module pulpissimo #(
   logic s_oe_cam_data6;
   logic s_oe_cam_data7;
   logic s_oe_cam_vsync;
+  */
+
   logic s_oe_sdio_clk;
   logic s_oe_sdio_cmd;
   logic s_oe_sdio_data0;
@@ -309,11 +321,13 @@ module pulpissimo #(
   logic [3:0]                  s_sdio_datao;
   logic [3:0]                  s_sdio_data_oen;
 
-
+  /*
   logic                        s_cam_pclk;
   logic [7:0]                  s_cam_data;
   logic                        s_cam_hsync;
   logic                        s_cam_vsync;
+  */
+
   logic [3:0]                  s_timer0;
   logic [3:0]                  s_timer1;
   logic [3:0]                  s_timer2;
@@ -416,6 +430,7 @@ module pulpissimo #(
     .oe_i2s0_sdi_i         ( s_oe_i2s0_sdi          ),
     .oe_i2s1_sdi_i         ( s_oe_i2s1_sdi          ),
     */
+    /*
     .oe_cam_pclk_i         ( s_oe_cam_pclk          ),
     .oe_cam_hsync_i        ( s_oe_cam_hsync         ),
     .oe_cam_data0_i        ( s_oe_cam_data0         ),
@@ -427,6 +442,7 @@ module pulpissimo #(
     .oe_cam_data6_i        ( s_oe_cam_data6         ),
     .oe_cam_data7_i        ( s_oe_cam_data7         ),
     .oe_cam_vsync_i        ( s_oe_cam_vsync         ),
+    */
     .oe_i2c0_sda_i         ( s_oe_i2c0_sda          ),
     .oe_i2c0_scl_i         ( s_oe_i2c0_scl          ),
     .oe_uart_rx_i          ( s_oe_uart_rx           ),
@@ -451,6 +467,7 @@ module pulpissimo #(
     .out_i2s0_sdi_i        ( s_out_i2s0_sdi         ),
     .out_i2s1_sdi_i        ( s_out_i2s1_sdi         ),
     */
+    /*
     .out_cam_pclk_i        ( s_out_cam_pclk         ),
     .out_cam_hsync_i       ( s_out_cam_hsync        ),
     .out_cam_data0_i       ( s_out_cam_data0        ),
@@ -462,6 +479,7 @@ module pulpissimo #(
     .out_cam_data6_i       ( s_out_cam_data6        ),
     .out_cam_data7_i       ( s_out_cam_data7        ),
     .out_cam_vsync_i       ( s_out_cam_vsync        ),
+    */
     .out_i2c0_sda_i        ( s_out_i2c0_sda         ),
     .out_i2c0_scl_i        ( s_out_i2c0_scl         ),
     .out_uart_rx_i         ( s_out_uart_rx          ),
@@ -486,6 +504,7 @@ module pulpissimo #(
     .in_i2s0_sdi_o         ( s_in_i2s0_sdi          ),
     .in_i2s1_sdi_o         ( s_in_i2s1_sdi          ),
     */
+    /*
     .in_cam_pclk_o         ( s_in_cam_pclk          ),
     .in_cam_hsync_o        ( s_in_cam_hsync         ),
     .in_cam_data0_o        ( s_in_cam_data0         ),
@@ -497,6 +516,7 @@ module pulpissimo #(
     .in_cam_data6_o        ( s_in_cam_data6         ),
     .in_cam_data7_o        ( s_in_cam_data7         ),
     .in_cam_vsync_o        ( s_in_cam_vsync         ),
+    */
     .in_i2c0_sda_o         ( s_in_i2c0_sda          ),
     .in_i2c0_scl_o         ( s_in_i2c0_scl          ),
     .in_uart_rx_o          ( s_in_uart_rx           ),
@@ -523,6 +543,7 @@ module pulpissimo #(
     .pad_i2s0_sdi          ( pad_i2s0_sdi           ),
     .pad_i2s1_sdi          ( pad_i2s1_sdi           ),
     */
+    /*
     .pad_cam_pclk          ( pad_cam_pclk           ),
     .pad_cam_hsync         ( pad_cam_hsync          ),
     .pad_cam_data0         ( pad_cam_data0          ),
@@ -534,6 +555,7 @@ module pulpissimo #(
     .pad_cam_data6         ( pad_cam_data6          ),
     .pad_cam_data7         ( pad_cam_data7          ),
     .pad_cam_vsync         ( pad_cam_vsync          ),
+    */
     .pad_i2c0_sda          ( pad_i2c0_sda           ),
     .pad_i2c0_scl          ( pad_i2c0_scl           ),
     .pad_uart_rx           ( pad_uart_rx            ),
@@ -610,11 +632,12 @@ module pulpissimo #(
         .sdio_data_o                ( s_sdio_datai                ),
         .sdio_data_oen_i            ( s_sdio_data_oen             ),
 
+        /*
         .cam_pclk_o                 ( s_cam_pclk                  ),
         .cam_data_o                 ( s_cam_data                  ),
         .cam_hsync_o                ( s_cam_hsync                 ),
         .cam_vsync_o                ( s_cam_vsync                 ),
-
+        */
         .timer0_i                   ( s_timer0                    ),
         .timer1_i                   ( s_timer1                    ),
         .timer2_i                   ( s_timer2                    ),
@@ -637,7 +660,7 @@ module pulpissimo #(
 
         .out_uart_rx_o              ( s_out_uart_rx               ),
         .out_uart_tx_o              ( s_out_uart_tx               ),
-
+        /*
         .out_cam_pclk_o             ( s_out_cam_pclk              ),
         .out_cam_hsync_o            ( s_out_cam_hsync             ),
         .out_cam_data0_o            ( s_out_cam_data0             ),
@@ -649,6 +672,7 @@ module pulpissimo #(
         .out_cam_data6_o            ( s_out_cam_data6             ),
         .out_cam_data7_o            ( s_out_cam_data7             ),
         .out_cam_vsync_o            ( s_out_cam_vsync             ),
+        */
 
         .out_i2c0_sda_o             ( s_out_i2c0_sda              ),
         .out_i2c0_scl_o             ( s_out_i2c0_scl              ),
@@ -675,6 +699,8 @@ module pulpissimo #(
 
         .in_uart_rx_i               ( s_in_uart_rx                ),
         .in_uart_tx_i               ( s_in_uart_tx                ),
+
+        /*
         .in_cam_pclk_i              ( s_in_cam_pclk               ),
         .in_cam_hsync_i             ( s_in_cam_hsync              ),
         .in_cam_data0_i             ( s_in_cam_data0              ),
@@ -686,6 +712,7 @@ module pulpissimo #(
         .in_cam_data6_i             ( s_in_cam_data6              ),
         .in_cam_data7_i             ( s_in_cam_data7              ),
         .in_cam_vsync_i             ( s_in_cam_vsync              ),
+        */
 
         .in_i2c0_sda_i              ( s_in_i2c0_sda               ),
         .in_i2c0_scl_i              ( s_in_i2c0_scl               ),
@@ -714,6 +741,8 @@ module pulpissimo #(
 
         .oe_uart_rx_o               ( s_oe_uart_rx                ),
         .oe_uart_tx_o               ( s_oe_uart_tx                ),
+
+        /*
         .oe_cam_pclk_o              ( s_oe_cam_pclk               ),
         .oe_cam_hsync_o             ( s_oe_cam_hsync              ),
         .oe_cam_data0_o             ( s_oe_cam_data0              ),
@@ -725,6 +754,8 @@ module pulpissimo #(
         .oe_cam_data6_o             ( s_oe_cam_data6              ),
         .oe_cam_data7_o             ( s_oe_cam_data7              ),
         .oe_cam_vsync_o             ( s_oe_cam_vsync              ),
+
+        */
 
         .oe_i2c0_sda_o              ( s_oe_i2c0_sda               ),
         .oe_i2c0_scl_o              ( s_oe_i2c0_scl               ),
@@ -795,11 +826,13 @@ module pulpissimo #(
         .uart_tx_o                    ( s_uart_tx                        ),
         .uart_rx_i                    ( s_uart_rx                        ),
 
+        /*
         .cam_clk_i                    ( s_cam_pclk                       ),
         .cam_data_i                   ( s_cam_data                       ),
         .cam_hsync_i                  ( s_cam_hsync                      ),
         .cam_vsync_i                  ( s_cam_vsync                      ),
-
+        */
+        
         .timer_ch0_o                  ( s_timer0                         ),
         .timer_ch1_o                  ( s_timer1                         ),
         .timer_ch2_o                  ( s_timer2                         ),

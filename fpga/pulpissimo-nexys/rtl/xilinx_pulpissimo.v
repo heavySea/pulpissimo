@@ -158,6 +158,7 @@ module xilinx_pulpissimo
        .pad_uart_rx(pad_uart_rx),
        .pad_uart_tx(pad_uart_tx),
        
+       /*
        .pad_cam_pclk(led1_o),
        .pad_cam_hsync(led2_o),
        .pad_cam_data0(led3_o),
@@ -169,6 +170,7 @@ module xilinx_pulpissimo
        .pad_cam_data6(btnr_i),
        .pad_cam_data7(btnu_i),
        .pad_cam_vsync(sdio_reset_o),
+       */
        
        .pad_sdio_clk(pad_sdio_clk),
        .pad_sdio_cmd(pad_sdio_cmd),
@@ -176,6 +178,7 @@ module xilinx_pulpissimo
        .pad_sdio_data1(pad_sdio_data1),
        .pad_sdio_data2(pad_sdio_data2),
        .pad_sdio_data3(pad_sdio_data3),
+
        .pad_i2c0_sda(pad_i2c0_sda),
 			 .pad_i2c0_scl(pad_i2c0_scl),
 			 /*

@@ -148,10 +148,12 @@ module tb_pulp;
    tri                   w_uart_rx;
    tri                   w_uart_tx;
 
+   /*
    wire                  w_cam_pclk;
    wire [7:0]            w_cam_data;
    wire                  w_cam_hsync;
    wire                  w_cam_vsync;
+   */
 
    // I2S 0
    /*wire                  w_i2s0_sck;
@@ -255,6 +257,8 @@ module tb_pulp;
          assign qspi_0.sck = w_spi_master_sck;
          assign qspi_0_csn[0].csn = w_spi_master_csn0;
          assign qspi_0_csn[1].csn = w_spi_master_csn1;
+         
+         /*
          assign w_cam_pclk = cpi.pclk;
          assign w_cam_hsync = cpi.href;
          assign w_cam_vsync = cpi.vsync;
@@ -266,7 +270,7 @@ module tb_pulp;
          assign w_cam_data[5] = cpi.data[5];
          assign w_cam_data[6] = cpi.data[6];
          assign w_cam_data[7] = cpi.data[7];
-
+         */
          assign w_sdio_data0  = gpio_22.data_out;
 
 
@@ -343,7 +347,7 @@ module tb_pulp;
 
     assign w_rst_n      = tmp_rst_n;
     assign w_clk_ref    = tmp_clk_ref;
-    assign s_cam_valid  = 1'b0;
+    //assign s_cam_valid  = 1'b0;
     assign w_trstn      = tmp_trstn;
     assign w_tck        = tmp_tck;
     assign w_tdi        = tmp_tdi;
@@ -435,7 +439,7 @@ module tb_pulp;
    if (!ENABLE_DEV_DPI && CONFIG_FILE == "NONE") begin
 
       /* CPI verification IP */
-      if (!USE_SDVT_CPI) begin
+      /*if (!USE_SDVT_CPI) begin
          cam_vip #(
             .HRES       ( 320 ),
             .VRES       ( 240 )
@@ -446,7 +450,8 @@ module tb_pulp;
             .cam_data_o  ( w_cam_data  )
          );
       end
-
+      */
+      
       /* I2S verification IPs */
       /*
       if(USE_I2S_MODEL) begin
@@ -554,6 +559,7 @@ module tb_pulp;
       .pad_uart_rx        ( w_uart_tx          ),
       .pad_uart_tx        ( w_uart_rx          ),
 
+      /*
       .pad_cam_pclk       ( w_cam_pclk         ),
       .pad_cam_hsync      ( w_cam_hsync        ),
       .pad_cam_data0      ( w_cam_data[0]      ),
@@ -565,6 +571,7 @@ module tb_pulp;
       .pad_cam_data6      ( w_cam_data[6]      ),
       .pad_cam_data7      ( w_cam_data[7]      ),
       .pad_cam_vsync      ( w_cam_vsync        ),
+      */
 
       .pad_sdio_clk       (                    ),
       .pad_sdio_cmd       (                    ),

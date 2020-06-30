@@ -68,12 +68,12 @@ module soc_domain #(
 
     output logic                             uart_tx_o,
     input  logic                             uart_rx_i,
-
+    /*
     input  logic                             cam_clk_i,
     input  logic [7:0]                       cam_data_i,
     input  logic                             cam_hsync_i,
     input  logic                             cam_vsync_i,
-
+    */
     output logic [3:0]                       timer_ch0_o,
     output logic [3:0]                       timer_ch1_o,
     output logic [3:0]                       timer_ch2_o,
@@ -419,18 +419,24 @@ module soc_domain #(
         .pf_evt_valid_i              (pf_evt_valid_i),
         .gpio_in_i                   (gpio_in_i[31:0]),
         .uart_rx_i                   (uart_rx_i),
+        
+        /*
         .cam_clk_i                   (cam_clk_i),
         .cam_data_i                  (cam_data_i[7:0]),
         .cam_hsync_i                 (cam_hsync_i),
         .cam_vsync_i                 (cam_vsync_i),
+        */
+
         .i2c_scl_i                   (i2c_scl_i[N_I2C-1:0]),
         .i2c_sda_i                   (i2c_sda_i[N_I2C-1:0]),
+        
         /*
         .i2s_slave_sd0_i             (i2s_slave_sd0_i),
         .i2s_slave_sd1_i             (i2s_slave_sd1_i),
         .i2s_slave_ws_i              (i2s_slave_ws_i),
         .i2s_slave_sck_i             (i2s_slave_sck_i),
         */
+        
         .spi_sdi_i                   (spi_sdi_i/*[N_SPI-1:0][3:0]*/),
         .sdio_cmd_i                  (sdio_cmd_i),
         .sdio_data_i                 (sdio_data_i[3:0]),
