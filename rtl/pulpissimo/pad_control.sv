@@ -375,6 +375,8 @@ module pad_control #(
    assign gpio_in_o[6]  = (pad_mux_i[6]  == 2'b01) ? in_spim_sck_i   : 1'b0 ;
    assign gpio_in_o[7]  = (pad_mux_i[7]  == 2'b01) ? in_uart_rx_i    : 1'b0 ;
    assign gpio_in_o[8]  = (pad_mux_i[8]  == 2'b01) ? in_uart_tx_i    : 1'b0 ;
+
+   /*
    assign gpio_in_o[9]  = (pad_mux_i[9]  == 2'b01) ? in_cam_pclk_i   : 1'b0 ;
    assign gpio_in_o[10] = (pad_mux_i[10] == 2'b01) ? in_cam_hsync_i  : 1'b0 ;
    assign gpio_in_o[11] = (pad_mux_i[11] == 2'b01) ? in_cam_data0_i  : 1'b0 ;
@@ -386,6 +388,8 @@ module pad_control #(
    assign gpio_in_o[17] = (pad_mux_i[17] == 2'b01) ? in_cam_data6_i  : 1'b0 ;
    assign gpio_in_o[18] = (pad_mux_i[18] == 2'b01) ? in_cam_data7_i  : 1'b0 ;
    assign gpio_in_o[19] = (pad_mux_i[19] == 2'b01) ? in_cam_vsync_i  : 1'b0 ;
+   */
+
    assign gpio_in_o[20] = (pad_mux_i[20] == 2'b01) ? in_sdio_clk_i   : 1'b0 ;
    assign gpio_in_o[21] = (pad_mux_i[21] == 2'b01) ? in_sdio_cmd_i   : 1'b0 ;
    assign gpio_in_o[22] = (pad_mux_i[22] == 2'b01) ? in_sdio_data0_i : 1'b0 ;
