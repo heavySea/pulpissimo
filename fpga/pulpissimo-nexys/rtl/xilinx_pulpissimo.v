@@ -33,6 +33,7 @@ module xilinx_pulpissimo
    inout wire  pad_spim_sdio2,
    inout wire  pad_spim_sdio3,
    inout wire  pad_spim_csn0,
+   inout wire  pad_spim_csn1,
    inout wire  pad_spim_sck,
    
    inout  wire pad_uart_rx,  //Mapped to uart_rx
@@ -40,7 +41,6 @@ module xilinx_pulpissimo
    //inout  wire pad_uart_cts,  //Not mapped, optional
    //inout  wire pad_uart_rts,  //Not mapped, optional
 
-   inout wire  led0_o, //Mapped to spim_csn1
 
    
 
@@ -141,6 +141,15 @@ module xilinx_pulpissimo
 
   //  );
 
+
+  //debug LEDS
+  wire spim_scn0;
+  wire spim_scn1;
+
+  assign pad_spim_csn0 = spim_scn0;
+  assign led1_o = spim_scn0;
+  assign pad_spim_csn1 = spim_scn1;
+  assign led2_o =spim_scn0;
   
   pulpissimo
     #(.CORE_TYPE(CORE_TYPE),
@@ -152,9 +161,9 @@ module xilinx_pulpissimo
        .pad_spim_sdio1(pad_spim_sdio1),
        .pad_spim_sdio2(pad_spim_sdio2),
        .pad_spim_sdio3(pad_spim_sdio3),
-       .pad_spim_csn0(pad_spim_csn0),
-       .pad_spim_csn1(led0_o),
-       .pad_spim_sck(pad_spim_sck),
+       .pad_spim_csn0(spim_scn0),
+       .pad_spim_csn1(spim_scn1),
+       .pad_spim_sck(spim_scn1),
        .pad_uart_rx(pad_uart_rx),
        .pad_uart_tx(pad_uart_tx),
        

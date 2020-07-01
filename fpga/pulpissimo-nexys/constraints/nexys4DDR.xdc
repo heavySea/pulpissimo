@@ -134,13 +134,14 @@ set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports switch1_i]
 #set_property -dict {PACKAGE_PIN M14 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio3]
 # not working for now
 
-#Use PMOD C for SPIM0
+#Use PMOD C for SPIM0 and SPIM1
 set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn0]
 set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio0]
 set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio1]
 set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio2]
 set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio3]
 set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports pad_spim_sck]
+set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn1]
 
 
 

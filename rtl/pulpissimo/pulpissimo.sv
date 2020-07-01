@@ -165,18 +165,21 @@ module pulpissimo #(
   logic s_in_sdio_data3;
   logic s_in_i2c0_sda;
   logic s_in_i2c0_scl;
+  
   /*
   logic s_in_i2s0_sck;
   logic s_in_i2s0_ws;
   logic s_in_i2s0_sdi;
   logic s_in_i2s1_sdi;
   */
+
   logic s_oe_spim_sdio0;
   logic s_oe_spim_sdio1;
   logic s_oe_spim_sdio2;
   logic s_oe_spim_sdio3;
   logic s_oe_spim_csn0;
   logic s_oe_spim_csn1;
+  
   logic s_oe_spim_sck;
   logic s_oe_uart_rx;
   logic s_oe_uart_tx;
