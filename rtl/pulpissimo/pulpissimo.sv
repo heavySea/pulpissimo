@@ -71,6 +71,11 @@ module pulpissimo #(
   inout wire pad_jtag_tms,
   inout wire pad_jtag_trst,
 
+  //debug
+  output   wire dbg_spim_csn0,
+  output   wire dbg_spim_csn1,
+  output   wire dbg_uart_tx,
+
   inout wire pad_xtal_in
 );
 
@@ -401,6 +406,11 @@ module pulpissimo #(
   logic                        s_bootsel;
   logic                        s_fc_fetch_en_valid;
   logic                        s_fc_fetch_en;
+
+  //DEBUG signals
+  assign dbg_spim_csn0=s_out_spim_csn0;
+  assign dbg_spim_csn1=s_out_spim_csn1;
+  assign dbg_uart_tx=s_uart_tx;
 
   //
   // PAD FRAME

@@ -45,15 +45,18 @@ module xilinx_pulpissimo
    
 
    // No cam support needed
-   /*
-   inout wire  btnc_i, //Mapped to cam_data3
+   
+   /*inout wire  btnc_i, //Mapped to cam_data3
    inout wire  btnd_i, //Mapped to cam_data4
    inout wire  btnl_i, //Mapped to cam_data5
    inout wire  btnr_i, //Mapped to cam_data6
    inout wire  btnu_i, //Mapped to cam_data7
-   inout wire  led1_o, //Mapped to cam_pclk
-   inout wire  led2_o, //Mapped to cam_hsync
-   inout wire  led3_o, //Mapped to cam_data0
+   */
+   output wire  led1_o, 
+   output wire  led2_o, 
+   output wire dbg_uart_tx,
+   //inout wire  led3_o, 
+   /*
    inout wire  switch0_i, //Mapped to cam_data1
    inout wire  switch1_i, //Mapped to cam_data2
    */
@@ -141,15 +144,6 @@ module xilinx_pulpissimo
 
   //  );
 
-
-  //debug LEDS
-  wire spim_scn0;
-  wire spim_scn1;
-
-  assign pad_spim_csn0 = spim_scn0;
-  assign led1_o = spim_scn0;
-  assign pad_spim_csn1 = spim_scn1;
-  assign led2_o =spim_scn0;
   
   pulpissimo
     #(.CORE_TYPE(CORE_TYPE),
@@ -161,9 +155,9 @@ module xilinx_pulpissimo
        .pad_spim_sdio1(pad_spim_sdio1),
        .pad_spim_sdio2(pad_spim_sdio2),
        .pad_spim_sdio3(pad_spim_sdio3),
-       .pad_spim_csn0(spim_scn0),
-       .pad_spim_csn1(spim_scn1),
-       .pad_spim_sck(spim_scn1),
+       .pad_spim_csn0(pad_spim_csn0),
+       .pad_spim_csn1(pad_spim_csn1),
+       .pad_spim_sck(pad_spim_sck),
        .pad_uart_rx(pad_uart_rx),
        .pad_uart_tx(pad_uart_tx),
        
@@ -204,6 +198,12 @@ module xilinx_pulpissimo
        //.pad_jtag_trst(pad_jtag_trst),
 			 .pad_jtag_trst(1'b1),
        .pad_xtal_in(ref_clk),
+
+       //debug
+       .dbg_spim_csn0(led1_o),
+       .dbg_spim_csn1(led2_o),
+       .dbg_uart_tx(dbg_uart_tx),
+
        .pad_bootsel()
        );
 
