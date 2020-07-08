@@ -67,7 +67,7 @@ module xilinx_pulpissimo
 
    output wire  led1_o, 
    output wire  led2_o, 
-   output wire dbg_uart_tx,
+   output wire dbg_uart_tx
 
    //input wire  pad_jtag_trst
  );
