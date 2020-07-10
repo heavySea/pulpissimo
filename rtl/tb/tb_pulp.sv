@@ -148,15 +148,15 @@ module tb_pulp;
    tri                   w_uart_rx;
    tri                   w_uart_tx;
 
-   /*
+   
    wire                  w_cam_pclk;
    wire [7:0]            w_cam_data;
    wire                  w_cam_hsync;
    wire                  w_cam_vsync;
-   */
+   
 
    // I2S 0
-   /*wire                  w_i2s0_sck;
+   wire                  w_i2s0_sck;
    wire                  w_i2s0_ws;
    wire                  w_i2s0_sdi;
    // I2S 1
@@ -165,7 +165,7 @@ module tb_pulp;
    wire                  w_i2s_sck;
    wire                  w_i2s_ws;
    wire           [7:0]  w_i2s_data;
-   */
+   
 
    wire                  w_trstn;
    wire                  w_tck;
@@ -559,7 +559,7 @@ module tb_pulp;
       .pad_uart_rx        ( w_uart_tx          ),
       .pad_uart_tx        ( w_uart_rx          ),
 
-      /*
+      
       .pad_cam_pclk       ( w_cam_pclk         ),
       .pad_cam_hsync      ( w_cam_hsync        ),
       .pad_cam_data0      ( w_cam_data[0]      ),
@@ -571,7 +571,7 @@ module tb_pulp;
       .pad_cam_data6      ( w_cam_data[6]      ),
       .pad_cam_data7      ( w_cam_data[7]      ),
       .pad_cam_vsync      ( w_cam_vsync        ),
-      */
+      
 
       .pad_sdio_clk       (                    ),
       .pad_sdio_cmd       (                    ),
@@ -583,12 +583,12 @@ module tb_pulp;
       .pad_i2c0_sda       ( w_i2c0_sda         ),
       .pad_i2c0_scl       ( w_i2c0_scl         ),
 
-      /*
+      
       .pad_i2s0_sck       ( w_i2s0_sck         ),
       .pad_i2s0_ws        ( w_i2s0_ws          ),
       .pad_i2s0_sdi       ( w_i2s0_sdi         ),
       .pad_i2s1_sdi       ( w_i2s1_sdi         ),
-   */
+   
       .pad_reset_n        ( w_rst_n            ),
       .pad_bootsel        ( w_bootsel          ),
 

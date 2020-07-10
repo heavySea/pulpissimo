@@ -268,20 +268,20 @@ module pad_control #(
    assign out_uart_tx_o    = (pad_mux_i[8 ] == 2'b00) ? uart_tx_i          : ((pad_mux_i[8 ] == 2'b01) ? gpio_out_i[8 ] : ((pad_mux_i[8 ] == 2'b10) ? i2c_scl_out_i[1] : s_alt3 ));
    
    
-   assign out_cam_pclk_o   = (pad_mux_i[9 ] == 2'b00) ? 1'b0               : ((pad_mux_i[9 ] == 2'b01) ? gpio_out_i[9 ] : ((pad_mux_i[9 ] == 2'b10) ? timer1_i[0]    : s_alt3 ));
-   assign out_cam_hsync_o  = (pad_mux_i[10] == 2'b00) ? 1'b0               : ((pad_mux_i[10] == 2'b01) ? gpio_out_i[10] : ((pad_mux_i[10] == 2'b10) ? timer1_i[1]    : s_alt3 ));
-   assign out_cam_data0_o  = (pad_mux_i[11] == 2'b00) ? 1'b0               : ((pad_mux_i[11] == 2'b01) ? gpio_out_i[11] : ((pad_mux_i[11] == 2'b10) ? timer1_i[2]    : s_alt3 ));
-   assign out_cam_data1_o  = (pad_mux_i[12] == 2'b00) ? 1'b0               : ((pad_mux_i[12] == 2'b01) ? gpio_out_i[12] : ((pad_mux_i[12] == 2'b10) ? timer1_i[3]    : s_alt3 ));
-   assign out_cam_data2_o  = (pad_mux_i[13] == 2'b00) ? 1'b0               : ((pad_mux_i[13] == 2'b01) ? gpio_out_i[13] : ((pad_mux_i[13] == 2'b10) ? timer2_i[0]    : s_alt3 ));
-   assign out_cam_data3_o  = (pad_mux_i[14] == 2'b00) ? 1'b0               : ((pad_mux_i[14] == 2'b01) ? gpio_out_i[14] : ((pad_mux_i[14] == 2'b10) ? timer2_i[1]    : s_alt3 ));
-   assign out_cam_data4_o  = (pad_mux_i[15] == 2'b00) ? 1'b0               : ((pad_mux_i[15] == 2'b01) ? gpio_out_i[15] : ((pad_mux_i[15] == 2'b10) ? timer2_i[2]    : s_alt3 ));
-   assign out_cam_data5_o  = (pad_mux_i[16] == 2'b00) ? 1'b0               : ((pad_mux_i[16] == 2'b01) ? gpio_out_i[16] : ((pad_mux_i[16] == 2'b10) ? timer2_i[3]    : s_alt3 ));
-   assign out_cam_data6_o  = (pad_mux_i[17] == 2'b00) ? 1'b0               : ((pad_mux_i[17] == 2'b01) ? gpio_out_i[17] : ((pad_mux_i[17] == 2'b10) ? timer3_i[0]    : s_alt3 ));
-   assign out_cam_data7_o  = (pad_mux_i[18] == 2'b00) ? 1'b0               : ((pad_mux_i[18] == 2'b01) ? gpio_out_i[18] : ((pad_mux_i[18] == 2'b10) ? timer3_i[1]    : s_alt3 ));
-   assign out_cam_vsync_o  = (pad_mux_i[19] == 2'b00) ? 1'b0               : ((pad_mux_i[19] == 2'b01) ? gpio_out_i[19] : ((pad_mux_i[19] == 2'b10) ? timer3_i[2]    : s_alt3 ));
+   assign out_cam_pclk_o   = (pad_mux_i[9 ] == 2'b00) ? 1'b0               : ((pad_mux_i[9 ] == 2'b01) ? gpio_out_i[9 ] : ((pad_mux_i[9 ] == 2'b10) ? timer0_i[0]    : s_alt3 ));
+   assign out_cam_hsync_o  = (pad_mux_i[10] == 2'b00) ? 1'b0               : ((pad_mux_i[10] == 2'b01) ? gpio_out_i[10] : ((pad_mux_i[10] == 2'b10) ? timer0_i[1]    : s_alt3 ));
+   assign out_cam_data0_o  = (pad_mux_i[11] == 2'b00) ? 1'b0               : ((pad_mux_i[11] == 2'b01) ? gpio_out_i[11] : ((pad_mux_i[11] == 2'b10) ? timer0_i[2]    : s_alt3 ));
+   assign out_cam_data1_o  = (pad_mux_i[12] == 2'b00) ? 1'b0               : ((pad_mux_i[12] == 2'b01) ? gpio_out_i[12] : ((pad_mux_i[12] == 2'b10) ? timer0_i[3]    : s_alt3 ));
+   assign out_cam_data2_o  = (pad_mux_i[13] == 2'b00) ? 1'b0               : ((pad_mux_i[13] == 2'b01) ? gpio_out_i[13] : ((pad_mux_i[13] == 2'b10) ? timer1_i[0]    : s_alt3 ));
+   assign out_cam_data3_o  = (pad_mux_i[14] == 2'b00) ? 1'b0               : ((pad_mux_i[14] == 2'b01) ? gpio_out_i[14] : ((pad_mux_i[14] == 2'b10) ? timer1_i[1]    : s_alt3 ));
+   assign out_cam_data4_o  = (pad_mux_i[15] == 2'b00) ? 1'b0               : ((pad_mux_i[15] == 2'b01) ? gpio_out_i[15] : ((pad_mux_i[15] == 2'b10) ? timer1_i[2]    : s_alt3 ));
+   assign out_cam_data5_o  = (pad_mux_i[16] == 2'b00) ? 1'b0               : ((pad_mux_i[16] == 2'b01) ? gpio_out_i[16] : ((pad_mux_i[16] == 2'b10) ? timer1_i[3]    : s_alt3 ));
+   assign out_cam_data6_o  = (pad_mux_i[17] == 2'b00) ? 1'b0               : ((pad_mux_i[17] == 2'b01) ? gpio_out_i[17] : ((pad_mux_i[17] == 2'b10) ? timer2_i[0]    : s_alt3 ));
+   assign out_cam_data7_o  = (pad_mux_i[18] == 2'b00) ? 1'b0               : ((pad_mux_i[18] == 2'b01) ? gpio_out_i[18] : ((pad_mux_i[18] == 2'b10) ? timer2_i[1]    : s_alt3 ));
+   assign out_cam_vsync_o  = (pad_mux_i[19] == 2'b00) ? 1'b0               : ((pad_mux_i[19] == 2'b01) ? gpio_out_i[19] : ((pad_mux_i[19] == 2'b10) ? timer2_i[2]    : s_alt3 ));
    
 
-   assign out_sdio_clk_o   = (pad_mux_i[20] == 2'b00) ? sdio_clk_i         : ((pad_mux_i[20] == 2'b01) ? gpio_out_i[20] : ((pad_mux_i[20] == 2'b10) ? s_alt2         : s_alt3 ));
+   assign out_sdio_clk_o   = (pad_mux_i[20] == 2'b00) ? sdio_clk_i         : ((pad_mux_i[20] == 2'b01) ? gpio_out_i[20] : ((pad_mux_i[20] == 2'b10) ? timer2_i[3]    : s_alt3 ));
    assign out_sdio_cmd_o   = (pad_mux_i[21] == 2'b00) ? sdio_cmd_i         : ((pad_mux_i[21] == 2'b01) ? gpio_out_i[21] : ((pad_mux_i[21] == 2'b10) ? s_alt2         : s_alt3 ));
    assign out_sdio_data0_o = (pad_mux_i[22] == 2'b00) ? sdio_data_i[0]     : ((pad_mux_i[22] == 2'b01) ? gpio_out_i[22] : ((pad_mux_i[22] == 2'b10) ? s_alt2         : s_alt3 ));
    assign out_sdio_data1_o = (pad_mux_i[23] == 2'b00) ? sdio_data_i[1]     : ((pad_mux_i[23] == 2'b01) ? gpio_out_i[23] : ((pad_mux_i[23] == 2'b10) ? s_alt2         : s_alt3 ));
