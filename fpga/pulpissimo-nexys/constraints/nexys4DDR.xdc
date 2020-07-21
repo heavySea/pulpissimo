@@ -150,21 +150,21 @@ set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn1
 
 #USE PMOD D for Advanced Timer PWM Output
 #JD1 = 0 / GPIO 9 / Timer 0 Channel 0
-set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 } [get_ports gpio1[9]  ] 
+set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[9]  ] 
 #JD2 = 0 / GPIO 10 / Timer 0 Channel 1
-set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 } [get_ports gpio1[10] ]
+set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[10] ]
 #JD3 = 0 / GPIO 11 / Timer 0 Channel 2
-set_property -dict { PACKAGE_PIN G1    IOSTANDARD LVCMOS33 } [get_ports gpio1[11] ]
+set_property -dict { PACKAGE_PIN G1    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[11] ]
 #JD4 = 0 / GPIO 12 / Timer 0 Channel 3
-set_property -dict { PACKAGE_PIN G3    IOSTANDARD LVCMOS33 } [get_ports gpio1[12] ]
+set_property -dict { PACKAGE_PIN G3    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[12] ]
 #JD7 = 0 / GPIO 13 / Timer 1 Channel 0
-set_property -dict { PACKAGE_PIN H2    IOSTANDARD LVCMOS33 } [get_ports gpio1[13] ]
+set_property -dict { PACKAGE_PIN H2    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[13] ]
 #JD8 = 0 / GPIO 14 / Timer 1 Channel 1
-set_property -dict { PACKAGE_PIN G4    IOSTANDARD LVCMOS33 } [get_ports gpio1[14] ]
+set_property -dict { PACKAGE_PIN G4    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[14] ]
 #JD9 = 0 / GPIO 15 / Timer 1 Channel 2
-set_property -dict { PACKAGE_PIN G2    IOSTANDARD LVCMOS33 } [get_ports gpio1[15] ]
+set_property -dict { PACKAGE_PIN G2    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[15] ]
 #JD10 = 0 / GPIO 16 / Timer 1 Channel 3
-set_property -dict { PACKAGE_PIN F3    IOSTANDARD LVCMOS33 } [get_ports gpio1[16] ]
+set_property -dict { PACKAGE_PIN F3    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[16] ]
 
 
 ## SD Card
