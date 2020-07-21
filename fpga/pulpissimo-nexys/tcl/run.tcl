@@ -124,3 +124,4 @@ check_timing                                                              -file 
 report_timing -max_paths 100 -nworst 100 -delay_type max -sort_by slack   -file reports/$PROJECT.timing_WORST_100.rpt
 report_timing -nworst 1 -delay_type max -sort_by group                    -file reports/$PROJECT.timing.rpt
 report_utilization -hierarchical                                          -file reports/$PROJECT.utilization.rpt
+report_power -hier all                                                    -file reports/$PROJECT.power.rpt

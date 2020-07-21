@@ -115,10 +115,20 @@ set_property -dict {PACKAGE_PIN D4 IOSTANDARD LVCMOS33} [get_ports pad_uart_tx]
 set_property -dict {PACKAGE_PIN K15 IOSTANDARD LVCMOS33} [get_ports led1_o]
 set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33} [get_ports led2_o]
 #set_property -dict {PACKAGE_PIN N14 IOSTANDARD LVCMOS33} [get_ports led3_o]
+## use for some GPIO Outputs
+set_property -dict {PACKAGE_PIN V11 IOSTANDARD LVCMOS33} [get_ports gpio2[29]]
+set_property -dict {PACKAGE_PIN V12 IOSTANDARD LVCMOS33} [get_ports gpio2[30]]
+set_property -dict {PACKAGE_PIN V14 IOSTANDARD LVCMOS33} [get_ports gpio2[31]]
 
 ## Switches
-#set_property -dict {PACKAGE_PIN J15 IOSTANDARD LVCMOS33} [get_ports switch0_i]
-#set_property -dict {PACKAGE_PIN L16 IOSTANDARD LVCMOS33} [get_ports switch1_i]
+## used for some GPIO Inputs
+set_property -dict {PACKAGE_PIN V10 IOSTANDARD LVCMOS33} [get_ports gpio1[17]]
+set_property -dict {PACKAGE_PIN U11 IOSTANDARD LVCMOS33} [get_ports gpio1[18]]
+
+##Buttons
+##use for some GPIO Inputs
+set_property -dict {PACKAGE_PIN M18 IOSTANDARD LVCMOS33} [get_ports gpio1[19]]
+set_property -dict {PACKAGE_PIN P18 IOSTANDARD LVCMOS33} [get_ports gpio2[28]]
 
 ## QSPI Flash
 ## disabled. Have a look at the Readme
@@ -130,14 +140,31 @@ set_property -dict {PACKAGE_PIN J13 IOSTANDARD LVCMOS33} [get_ports led2_o]
 # not working for now
 
 #Use PMOD C for SPIM0 and SPIM1
-set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn0] #JC1
-set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio0] #JC2
-set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio1] #JC3
-set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio2] #JC4
-set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio3] #JC7
-set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports pad_spim_sck] #JC8
-set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn1] #JC9
+set_property -dict {PACKAGE_PIN K1 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn0] 
+set_property -dict {PACKAGE_PIN F6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio0] 
+set_property -dict {PACKAGE_PIN J2 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio1] 
+set_property -dict {PACKAGE_PIN G6 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio2] 
+set_property -dict {PACKAGE_PIN E7 IOSTANDARD LVCMOS33} [get_ports pad_spim_sdio3] 
+set_property -dict {PACKAGE_PIN J3 IOSTANDARD LVCMOS33} [get_ports pad_spim_sck] 
+set_property -dict {PACKAGE_PIN J4 IOSTANDARD LVCMOS33} [get_ports pad_spim_csn1] 
 
+#USE PMOD D for Advanced Timer PWM Output
+#JD1 = 0 / GPIO 9 / Timer 0 Channel 0
+set_property -dict { PACKAGE_PIN H4    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[9]  ] 
+#JD2 = 0 / GPIO 10 / Timer 0 Channel 1
+set_property -dict { PACKAGE_PIN H1    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[10] ]
+#JD3 = 0 / GPIO 11 / Timer 0 Channel 2
+set_property -dict { PACKAGE_PIN G1    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[11] ]
+#JD4 = 0 / GPIO 12 / Timer 0 Channel 3
+set_property -dict { PACKAGE_PIN G3    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[12] ]
+#JD7 = 0 / GPIO 13 / Timer 1 Channel 0
+set_property -dict { PACKAGE_PIN H2    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[13] ]
+#JD8 = 0 / GPIO 14 / Timer 1 Channel 1
+set_property -dict { PACKAGE_PIN G4    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[14] ]
+#JD9 = 0 / GPIO 15 / Timer 1 Channel 2
+set_property -dict { PACKAGE_PIN G2    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[15] ]
+#JD10 = 0 / GPIO 16 / Timer 1 Channel 3
+set_property -dict { PACKAGE_PIN F3    IOSTANDARD LVCMOS33 PULLUP TRUE } [get_ports gpio1[16] ]
 
 
 ## SD Card
@@ -149,6 +176,9 @@ set_property -dict {PACKAGE_PIN E1 IOSTANDARD LVCMOS33} [get_ports pad_sdio_data
 set_property -dict {PACKAGE_PIN F1 IOSTANDARD LVCMOS33} [get_ports pad_sdio_data2]
 set_property -dict {PACKAGE_PIN D2 IOSTANDARD LVCMOS33} [get_ports pad_sdio_data3]
 set_property -dict {PACKAGE_PIN E2 IOSTANDARD LVCMOS33} [get_ports sdio_reset_o]
+
+
+
 
 # Nexys 4 has a quad SPI flash
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
