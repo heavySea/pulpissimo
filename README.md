@@ -128,24 +128,20 @@ First install the system dependencies indicated
 
 In particular don't forget to set `PULP_RISCV_GCC_TOOLCHAIN`.
 
-Then execute the following commands:
+You can now either follow the steps outlined [here](https://github.com/pulp-platform/pulp-sdk/#standard-sdk-build)
+to build the full sdk or just call
 ```
-git clone https://github.com/pulp-platform/pulp-builder.git
-cd pulp-builder
-git checkout 0e51ae60d66f4ec326582d63a9fcd40ed2a70e15
-source configs/pulpissimo.sh
-./scripts/clean
-./scripts/update-runtime
-./scripts/build-runtime
-source sdk-setup.sh
-source configs/rtl.sh
-cd ..
+make build-pulp-sdk
+```
+and then set up the necessary environment variables with
+```
+source env/pulpissimo.sh
 ```
 
 ### Building the RTL simulation platform
 To build the RTL simulation platform, start by getting the latest version of the
 IPs composing the PULP system:
-```
+```bash
 ./update-ips
 ```
 This will download all the required IPs, solve dependencies and generate the
@@ -153,9 +149,9 @@ scripts by calling `./generate-scripts`.
 
 After having access to the SDK, you can build the simulation platform by doing
 the following:
-```
+```bash
 source setup/vsim.sh
-make clean build
+make build
 ```
 This command builds a version of the simulation platform with no dependencies on
 external models for peripherals. See below (Proprietary verification IPs) for
@@ -163,6 +159,8 @@ details on how to plug in some models of real SPI, I2C, I2S peripherals.
 
 For more advanced usage have a look at `./generate-scripts --help` and
 `update-ips --help`.
+
+Also check out the output of `make help` for more useful Makefile targets.
 
 ### Downloading and running examples
 Finally, you can download and run examples; for that you can checkout the
@@ -174,8 +172,8 @@ SDK: https://github.com/pulp-platform/pulp-rt-examples
 
 Now you can change directory to your favourite test e.g.: for an hello world
 test, run
-```
-cd your_repository_name/hello
+```bash
+cd pulp-rt-examples/hello
 make clean all run
 ```
 The open-source simulation platform relies on JTAG to emulate preloading of the
@@ -183,13 +181,13 @@ PULP L2 memory. If you want to simulate a more realistic scenario (e.g.
 accessing an external SPI Flash), look at the sections below.
 
 In case you want to see the Modelsim GUI, just type
-```
+```bash
 make run gui=1
 ```
 before starting the simulation.
 
 If you want to save a (compressed) VCD for further examination, type
-```
+```bash
 make run vsim/script=export_run.tcl
 ```
 before starting the simulation. You will find the VCD in
@@ -198,23 +196,17 @@ before starting the simulation. You will find the VCD in
 
 ### Building and using the virtual platform
 
-Once the RTL platform is installed, the following commands can be executed to
-install and use the virtual platform:
-```
-git clone https://github.com/pulp-platform/pulp-builder.git
-cd pulp-builder
-git checkout 7bd925324fcecae2aad9875f4da45b27d8356796
-source configs/pulpissimo.sh
-./scripts/build-gvsoc
-source sdk-setup.sh
-source configs/gvsoc.sh
-cd ..
+Once the sdk is installed, the following commands can be executed in the sdk
+directory to use the virtual platform:
+```bash
+source sourceme.sh
+source configs/platform-gvsoc.sh
 ```
 
 Then tests can be compiled and run as for the RTL platform. When switching from
 one platform to another, it may be needed to regenrate the test configuration
 with this command:
-```
+```bash
 make conf
 ```
 
