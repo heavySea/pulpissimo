@@ -79,34 +79,69 @@ For further information on how to design and integrate such accelerators,
 see `ips/hwpe-stream/doc` and https://arxiv.org/abs/1612.05974.
 
 ## Getting Started
+We provide a [simple runtime](#simple-runtime) and a [full featured
+runtime](#software-development-kit) for PULPissimo. We recommend you try out
+first the minimal runtime and when you hit its limitations you can try the full
+runtime by installing the SDK.
 
-### Prerequisites
-To be able to use the PULPissimo platform, you need to have installed the software
-development kit for PULP/PULPissimo.
+After having chosen a runtime you can run software by either [simulating the
+hardware](#building-the-rtl-simulation-platform) or running it in a [software
+emulation](#building-and-using-the-virtual-platform).
 
-First install the system dependencies indicated here:
-https://github.com/pulp-platform/pulp-builder/blob/master/README.md
+### Simple Runtime
+The simple runtime is here to get you started quickly. Using it can run and
+write programs that don't need any advanced features.
 
-In particular don't forget to set PULP_RISCV_GCC_TOOLCHAIN.
+First install the system dependencies indicated
+[here](https://github.com/pulp-platform/pulp-runtime/blob/master/README.md)
 
-Then execute the following commands:
+Then make sure you have
+[pulp-riscv-gnu-toolchain](https://github.com/pulp-platform/pulp-riscv-gnu-toolchain)
+installed (either by compiling it or using one of the binary releases under
+available under the release tab) and point `PULP_RISCV_GCC_TOOLCHAIN` to it:
+
 ```
-git clone https://github.com/pulp-platform/pulp-builder.git
-cd pulp-builder
-git checkout 0e51ae60d66f4ec326582d63a9fcd40ed2a70e15
+export PULP_RISCV_GCC_TOOLCHAIN=YOUR_PULP_TOOLCHAIN_PATH
+```
+
+Get the repository for the simple runtime:
+```
+git clone https://github.com/pulp-platform/pulp-runtime/
+```
+The simple runtime supports many different hardware configurations. We want PULPissimo:
+```
+cd pulp-runtime
 source configs/pulpissimo.sh
-./scripts/clean
-./scripts/update-runtime
-./scripts/build-runtime
-source sdk-setup.sh
-source configs/rtl.sh
-cd ..
+```
+
+Now we are ready to set up the simulation environment. Normally you would want
+to simulate the hardware design running your program, so go
+[here](#building-the-rtl-simulation-platform).
+
+
+### Software Development Kit
+If you need a more complete runtime (drivers, tasks etc.) you can install the
+software development kit for PULP/PULPissimo.
+
+First install the system dependencies indicated
+[here](https://github.com/pulp-platform/pulp-builder/blob/master/README.md)
+
+In particular don't forget to set `PULP_RISCV_GCC_TOOLCHAIN`.
+
+You can now either follow the steps outlined [here](https://github.com/pulp-platform/pulp-sdk/#standard-sdk-build)
+to build the full sdk or just call
+```
+make build-pulp-sdk
+```
+and then set up the necessary environment variables with
+```
+source env/pulpissimo.sh
 ```
 
 ### Building the RTL simulation platform
 To build the RTL simulation platform, start by getting the latest version of the
 IPs composing the PULP system:
-```
+```bash
 ./update-ips
 ```
 This will download all the required IPs, solve dependencies and generate the
@@ -114,23 +149,30 @@ scripts by calling `./generate-scripts`.
 
 After having access to the SDK, you can build the simulation platform by doing
 the following:
-```
+```bash
 source setup/vsim.sh
-make clean build
+make build
 ```
 This command builds a version of the simulation platform with no dependencies on
 external models for peripherals. See below (Proprietary verification IPs) for
 details on how to plug in some models of real SPI, I2C, I2S peripherals.
 
-### Downloading and running tests
-Finally, you can download and run the tests; for that you can checkout the
-following repositories:
+For more advanced usage have a look at `./generate-scripts --help` and
+`update-ips --help`.
 
-Runtime tests: https://github.com/pulp-platform/pulp-rt-examples
+Also check out the output of `make help` for more useful Makefile targets.
+
+### Downloading and running examples
+Finally, you can download and run examples; for that you can checkout the
+following repositories depending on whether you use the simple runtime or the full sdk.
+
+Simple Runtime: https://github.com/pulp-platform/pulp-runtime-examples
+
+SDK: https://github.com/pulp-platform/pulp-rt-examples
 
 Now you can change directory to your favourite test e.g.: for an hello world
 test, run
-```
+```bash
 cd pulp-rt-examples/hello
 make clean all run
 ```
@@ -139,13 +181,13 @@ PULP L2 memory. If you want to simulate a more realistic scenario (e.g.
 accessing an external SPI Flash), look at the sections below.
 
 In case you want to see the Modelsim GUI, just type
-```
+```bash
 make run gui=1
 ```
 before starting the simulation.
 
 If you want to save a (compressed) VCD for further examination, type
-```
+```bash
 make run vsim/script=export_run.tcl
 ```
 before starting the simulation. You will find the VCD in
@@ -154,23 +196,17 @@ before starting the simulation. You will find the VCD in
 
 ### Building and using the virtual platform
 
-Once the RTL platform is installed, the following commands can be executed to
-install and use the virtual platform:
-```
-git clone https://github.com/pulp-platform/pulp-builder.git
-cd pulp-builder
-git checkout 7bd925324fcecae2aad9875f4da45b27d8356796
-source configs/pulpissimo.sh
-./scripts/build-gvsoc
-source sdk-setup.sh
-source configs/gvsoc.sh
-cd ..
+Once the sdk is installed, the following commands can be executed in the sdk
+directory to use the virtual platform:
+```bash
+source sourceme.sh
+source configs/platform-gvsoc.sh
 ```
 
 Then tests can be compiled and run as for the RTL platform. When switching from
 one platform to another, it may be needed to regenrate the test configuration
 with this command:
-```
+```bash
 make conf
 ```
 
