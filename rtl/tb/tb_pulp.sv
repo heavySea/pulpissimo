@@ -32,9 +32,9 @@ module tb_pulp;
    /* simulation platform parameters */
 
    // Choose your core: 0 for RISCY, 1 for ZERORISCY
-   parameter CORE_TYPE            = 0;
+   parameter CORE_TYPE            = 1;
    // if RISCY is instantiated (CORE_TYPE == 0), RISCY_FPU enables the FPU
-   parameter RISCY_FPU            = 1;
+   parameter RISCY_FPU            = 0;
 
    // the following parameters can activate instantiation of the verification IPs for SPI, I2C and I2s
    // see the instructions in rtl/vip/{i2c_eeprom,i2s,spi_flash} to download the verification IPs
